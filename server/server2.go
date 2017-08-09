@@ -5,10 +5,10 @@ import "net/http"
 func main(){
 
 	http.HandleFunc("/", someFunc)
-	http.ListenAndServe(":8080", nil)
+	http.ListenAndServe(":8085", nil)
 }
 
 func someFunc(w http.ResponseWriter, req *http.Request){
-	w.Write([]byte("Hello world1\n"))
+	w.Write([]byte("Jenkins build test\n"))
 }
 
