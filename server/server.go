@@ -6,7 +6,7 @@ import "net/http"
 func main(){
 	http.HandleFunc("/", someFunc)
 	http.HandleFunc("/hello", hello)
-	http.ListenAndServe(":8080", nil)
+	http.ListenAndServe(":8888", nil)
 }
 
 func someFunc(w http.ResponseWriter, req *http.Request){
