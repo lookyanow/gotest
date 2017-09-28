@@ -9,6 +9,6 @@ func main(){
 }
 
 func someFunc(w http.ResponseWriter, req *http.Request){
-	w.Write([]byte(" Another Jenkins build test\n"))
+	w.Write([]byte("New Jenkins build test\n"))
 }
 
