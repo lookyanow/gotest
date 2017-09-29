@@ -1,12 +1,18 @@
 pipeline {
   agent any
   stages {
-    stage('test') {
+    stage('goserver build') {
       steps {
         sh '''
         ./server-make.sh
 '''
       }
     }
+    stage('goserver container build') {
+      steps {
+        sh '''
+        docker build goserver server/Dockerfile  
+'''
   }
+}
 }
