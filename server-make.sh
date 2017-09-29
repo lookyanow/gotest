@@ -1,4 +1,4 @@
 #!/bin/bash
 
 cd server/
-go build server2.go
+go build server.go

@@ -11,7 +11,7 @@ pipeline {
     stage('goserver container build') {
       steps {
         sh '''
-        docker build goserver server/Dockerfile  
+        docker build goserver ./server/Dockerfile  
 '''
    }
   }
