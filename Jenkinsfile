@@ -4,7 +4,7 @@ pipeline {
     stage('test') {
       steps {
         sh '''
-        server-make.sh
+        ./server-make.sh
 '''
       }
     }
