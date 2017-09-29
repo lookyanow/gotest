@@ -4,7 +4,7 @@ pipeline {
     stage('test') {
       steps {
         sh '''cd server/
-go build server2.go 
+\\\\ go build server2.go 
 '''
       }
     }
