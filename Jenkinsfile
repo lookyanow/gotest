@@ -3,8 +3,8 @@ pipeline {
   stages {
     stage('test') {
       steps {
-        sh '''cd server/
-\\\\ go build server2.go 
+        sh '''
+        server-make.sh
 '''
       }
     }
