@@ -13,6 +13,7 @@ pipeline {
         sh '''
         docker build goserver server/Dockerfile  
 '''
+   }
   }
-}
+ }
 }
