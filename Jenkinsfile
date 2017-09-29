@@ -4,14 +4,14 @@ pipeline {
     stage('goserver build') {
       steps {
         sh '''
-        ./server-make.sh
+        go build server.go
 '''
       }
     }
     stage('goserver container build') {
       steps {
         sh '''
-        docker build -t goserver ./server/Dockerfile  
+        docker build -t goserver ./  
 '''
    }
   }
