@@ -4,7 +4,7 @@ pipeline {
     stage('goserver build') {
       steps {
         sh '''
-        go build server.go
+        server-make.sh
 '''
       }
     }
