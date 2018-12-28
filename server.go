@@ -1,12 +1,18 @@
 package main 
 
 //import "fmt"
-import "net/http"
+import (
+	"fmt"
+	"log"
+	"net/http"
+	"net/http/httputil"
+)
 
 func main(){
 	http.HandleFunc("/", someFunc)
 	http.HandleFunc("/hello", hello)
 	http.HandleFunc("/test", test)
+	http.HandleFunc("/dump", getDump)
 	http.ListenAndServe(":8888", nil)
 }
 
@@ -20,4 +26,14 @@ func hello(w http.ResponseWriter, req *http.Request){
 
 func test(w http.ResponseWriter, req *http.Request){
 	w.Write([]byte("New pipeline test\n"))
+}
+
+func getDump(w http.ResponseWriter, r *http.Request) {
+	requestDump, err := httputil.DumpRequest(r, true)
+	if err != nil {
+		fmt.Fprint(w, err.Error())
+	} else {
+		fmt.Fprint(w, string(requestDump))
+		log.Print(string(requestDump))
+	}
 }
