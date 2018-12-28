@@ -12,6 +12,8 @@ func main(){
 	http.HandleFunc("/", someFunc)
 	http.HandleFunc("/hello", hello)
 	http.HandleFunc("/dump", getDump)
+	http.HandleFunc("/live", liveCheck)
+	http.HandleFunc("/ready", readyCheck)
 	http.ListenAndServe(":80", nil)
 }
 
@@ -23,6 +25,16 @@ func hello(w http.ResponseWriter, req *http.Request){
 	w.Write([]byte("Hello world\n"))
 }
 
+func liveCheck(w http.ResponseWriter, req *http.Request){
+	w.WriteHeader(http.StatusOK)
+	w.Write([]byte("ok"))
+}
+
+func readyCheck(w http.ResponseWriter, req *http.Request){
+	w.WriteHeader(http.StatusOK)
+	w.Write([]byte("ready"))
+}
+
 func getDump(w http.ResponseWriter, r *http.Request) {
 	requestDump, err := httputil.DumpRequest(r, true)
 	if err != nil {
@@ -32,3 +44,4 @@ func getDump(w http.ResponseWriter, r *http.Request) {
 		log.Print(string(requestDump))
 	}
 }
+
