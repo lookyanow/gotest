@@ -11,7 +11,6 @@ import (
 func main(){
 	http.HandleFunc("/", someFunc)
 	http.HandleFunc("/hello", hello)
-	http.HandleFunc("/test", test)
 	http.HandleFunc("/dump", getDump)
 	http.ListenAndServe(":80", nil)
 }
@@ -22,10 +21,6 @@ func someFunc(w http.ResponseWriter, req *http.Request){
 
 func hello(w http.ResponseWriter, req *http.Request){
 	w.Write([]byte("Hello world\n"))
-}
-
-func test(w http.ResponseWriter, req *http.Request){
-	w.Write([]byte("New pipeline test\n"))
 }
 
 func getDump(w http.ResponseWriter, r *http.Request) {
