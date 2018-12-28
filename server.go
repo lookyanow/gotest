@@ -13,7 +13,7 @@ func main(){
 	http.HandleFunc("/hello", hello)
 	http.HandleFunc("/test", test)
 	http.HandleFunc("/dump", getDump)
-	http.ListenAndServe(":8888", nil)
+	http.ListenAndServe(":80", nil)
 }
 
 func someFunc(w http.ResponseWriter, req *http.Request){
