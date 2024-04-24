@@ -15,7 +15,8 @@ pipeline {
         sh '''
         echo "This is test stage" 
 '''
-   }
+      }
+    }
     stage('Docker Image Build') {
             agent {
                 docker { image 'ubuntu:22.04' }
@@ -25,7 +26,6 @@ pipeline {
                 sh 'pwd' 
                 sh 'id'
             }
-        }
-  }
+    }
  }
 }
