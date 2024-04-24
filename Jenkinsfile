@@ -4,7 +4,8 @@ pipeline {
     stage('goserver build') {
       steps {
         sh '''
-        go --version
+        echo "Golang version check"
+        go version
         echo "Hello world from jenkins project"
 '''
       }
