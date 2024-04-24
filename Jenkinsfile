@@ -4,14 +4,15 @@ pipeline {
     stage('goserver build') {
       steps {
         sh '''
-        ./server-make.sh
+        go --version
+        echo "Hello world from jenkins project"
 '''
       }
     }
-    stage('goserver container build') {
+    stage('testing stage') {
       steps {
         sh '''
-        sudo docker build -t goserver ./  
+        echo "This is test stage" 
 '''
    }
   }
